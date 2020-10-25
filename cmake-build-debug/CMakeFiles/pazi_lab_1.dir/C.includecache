@@ -1,0 +1,58 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/r.anchugov/CLionProjects/pazi_lab_1/ gost_curve_params.h
+
+/Users/r.anchugov/CLionProjects/pazi_lab_1/jacobi_curve/jacobi_curve.h
+gcrypt.h
+-
+
+/Users/r.anchugov/CLionProjects/pazi_lab_1/main.c
+stdio.h
+-
+jacobi_curve/jacobi_curve.h
+/Users/r.anchugov/CLionProjects/pazi_lab_1/jacobi_curve/jacobi_curve.h
+ gost_curve_params.h
+/Users/r.anchugov/CLionProjects/pazi_lab_1/ gost_curve_params.h
+
+/usr/local/Cellar/libgcrypt/1.8.6/include/gcrypt.h
+stdlib.h
+-
+stdarg.h
+-
+string.h
+-
+gpg-error.h
+-
+sys/types.h
+-
+winsock2.h
+-
+ws2tcpip.h
+-
+time.h
+-
+sys/socket.h
+-
+sys/time.h
+-
+sys/select.h
+-
+
+/usr/local/Cellar/libgpg-error/1.39/include/gpg-error.h
+stddef.h
+-
+stdio.h
+-
+stdarg.h
+-
+sanitizer/lsan_interface.h
+-
+sys/types.h
+-
+

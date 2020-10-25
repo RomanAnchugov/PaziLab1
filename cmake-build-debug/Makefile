@@ -143,6 +143,33 @@ pazi_lab_1/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/pazi_lab_1.dir/build.make CMakeFiles/pazi_lab_1.dir/build
 .PHONY : pazi_lab_1/fast
 
+jacobi_curve/jacobi_curve.o: jacobi_curve/jacobi_curve.c.o
+
+.PHONY : jacobi_curve/jacobi_curve.o
+
+# target to build an object file
+jacobi_curve/jacobi_curve.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pazi_lab_1.dir/build.make CMakeFiles/pazi_lab_1.dir/jacobi_curve/jacobi_curve.c.o
+.PHONY : jacobi_curve/jacobi_curve.c.o
+
+jacobi_curve/jacobi_curve.i: jacobi_curve/jacobi_curve.c.i
+
+.PHONY : jacobi_curve/jacobi_curve.i
+
+# target to preprocess a source file
+jacobi_curve/jacobi_curve.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pazi_lab_1.dir/build.make CMakeFiles/pazi_lab_1.dir/jacobi_curve/jacobi_curve.c.i
+.PHONY : jacobi_curve/jacobi_curve.c.i
+
+jacobi_curve/jacobi_curve.s: jacobi_curve/jacobi_curve.c.s
+
+.PHONY : jacobi_curve/jacobi_curve.s
+
+# target to generate assembly for a file
+jacobi_curve/jacobi_curve.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pazi_lab_1.dir/build.make CMakeFiles/pazi_lab_1.dir/jacobi_curve/jacobi_curve.c.s
+.PHONY : jacobi_curve/jacobi_curve.c.s
+
 main.o: main.c.o
 
 .PHONY : main.o
@@ -179,6 +206,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... pazi_lab_1"
+	@echo "... jacobi_curve/jacobi_curve.o"
+	@echo "... jacobi_curve/jacobi_curve.i"
+	@echo "... jacobi_curve/jacobi_curve.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

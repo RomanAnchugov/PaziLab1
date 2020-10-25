@@ -6,5 +6,5 @@ C_FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk 
 
 C_DEFINES = 
 
-C_INCLUDES = -I/usr/local/Cellar/libgcrypt/1.8.6/include 
+C_INCLUDES = -I/usr/local/Cellar/libgcrypt/1.8.6/include -I/usr/local/Cellar/libgpg-error/1.39/include 
 
