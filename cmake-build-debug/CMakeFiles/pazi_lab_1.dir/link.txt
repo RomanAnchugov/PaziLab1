@@ -1,0 +1,1 @@
+/Library/Developer/CommandLineTools/usr/bin/cc -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names  CMakeFiles/pazi_lab_1.dir/main.c.o  -o pazi_lab_1   -L/usr/local/Cellar/libgcrypt/1.8.6/lib  -Wl,-rpath,/usr/local/Cellar/libgcrypt/1.8.6/lib -lgcrypt 
