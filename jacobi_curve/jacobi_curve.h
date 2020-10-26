@@ -22,4 +22,6 @@ struct jacobian_curve {
 
 void calculate_jacobi_curve(jacobian_curve *curve, gcry_mpi_t p, gcry_mpi_t q, gcry_mpi_t t,
                          gcry_mpi_t a, gcry_mpi_t x_base, gcry_mpi_t y_base);
+
+void print_mpi(gcry_mpi_t value);
 #endif //PAZI_LAB_1_JACOBI_CURVE_H

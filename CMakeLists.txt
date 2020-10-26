@@ -11,4 +11,4 @@ link_libraries(gpg-error)
 
 set(CMAKE_C_STANDARD 11)
 
-add_executable(pazi_lab_1 main.c jacobi_curve/jacobi_curve.h jacobi_curve/jacobi_curve.c " gost_curve_params.h")
+add_executable(pazi_lab_1 main.c jacobi_curve/jacobi_curve.h jacobi_curve/jacobi_curve.c " gost_curve_params.h" point/point.h point/point.c)

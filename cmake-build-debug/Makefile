@@ -197,6 +197,33 @@ main.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/pazi_lab_1.dir/build.make CMakeFiles/pazi_lab_1.dir/main.c.s
 .PHONY : main.c.s
 
+point/point.o: point/point.c.o
+
+.PHONY : point/point.o
+
+# target to build an object file
+point/point.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pazi_lab_1.dir/build.make CMakeFiles/pazi_lab_1.dir/point/point.c.o
+.PHONY : point/point.c.o
+
+point/point.i: point/point.c.i
+
+.PHONY : point/point.i
+
+# target to preprocess a source file
+point/point.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pazi_lab_1.dir/build.make CMakeFiles/pazi_lab_1.dir/point/point.c.i
+.PHONY : point/point.c.i
+
+point/point.s: point/point.c.s
+
+.PHONY : point/point.s
+
+# target to generate assembly for a file
+point/point.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pazi_lab_1.dir/build.make CMakeFiles/pazi_lab_1.dir/point/point.c.s
+.PHONY : point/point.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -212,6 +239,9 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... point/point.o"
+	@echo "... point/point.i"
+	@echo "... point/point.s"
 .PHONY : help
 
 

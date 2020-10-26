@@ -1,6 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/pazi_lab_1.dir/jacobi_curve/jacobi_curve.c.o"
   "CMakeFiles/pazi_lab_1.dir/main.c.o"
+  "CMakeFiles/pazi_lab_1.dir/point/point.c.o"
   "pazi_lab_1"
   "pazi_lab_1.pdb"
 )

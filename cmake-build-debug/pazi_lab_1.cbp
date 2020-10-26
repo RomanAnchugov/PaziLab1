@@ -94,6 +94,12 @@
 		<Unit filename="/Users/r.anchugov/CLionProjects/pazi_lab_1/main.c">
 			<Option target="pazi_lab_1"/>
 		</Unit>
+		<Unit filename="/Users/r.anchugov/CLionProjects/pazi_lab_1/point/point.c">
+			<Option target="pazi_lab_1"/>
+		</Unit>
+		<Unit filename="/Users/r.anchugov/CLionProjects/pazi_lab_1/point/point.h">
+			<Option target="pazi_lab_1"/>
+		</Unit>
 		<Unit filename="/Users/r.anchugov/CLionProjects/pazi_lab_1/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>

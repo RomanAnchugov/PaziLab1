@@ -1,16 +1,7 @@
 #include <stdio.h>
 #include "jacobi_curve/jacobi_curve.h"
-#include " gost_curve_params.h"
-
-void print_mpi(gcry_mpi_t value) {
-    unsigned char *buffer;
-    gcry_error_t err = gcry_mpi_aprint(GCRYMPI_FMT_HEX, &buffer, NULL, value);
-    if (err != 0) {
-        printf(" error: %d\n", err);
-    }
-    printf("MPI %s\n", buffer);
-    gcry_free(buffer);
-}
+#include "gost_curve_params.h"
+#include "point/point.h"
 
 int main() {
     jacobian_curve test_curve;
@@ -25,10 +16,19 @@ int main() {
 
     calculate_jacobi_curve(&test_curve, p, q, t, a, x_base, y_base);
 
-    print_mpi(test_curve.e);
-    print_mpi(test_curve.d);
-    print_mpi(test_curve.x_base);
-    print_mpi(test_curve.y_base);
+    point test1, test2;
+    create_neutral_point(&test1);
+    create_point(&test2, p, q, t);
+    print_point(test1);
+    print_point(test2);
+    point test_res;
+    add_point(&test_res, &test1, &test2, &test_curve);
+    print_point(test_res);
+
+    gcry_mpi_t two;
+    gcry_mpi_scan(&two, GCRYMPI_FMT_HEX, "2", 0, NULL);
+    montgomery(&test_res, &test2, two, &test_curve);
+    print_point(test_res);
 
     return 0;
 }

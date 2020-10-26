@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/Users/r.anchugov/CLionProjects/pazi_lab_1/ gost_curve_params.h
+/Users/r.anchugov/CLionProjects/pazi_lab_1/gost_curve_params.h
 
 /Users/r.anchugov/CLionProjects/pazi_lab_1/jacobi_curve/jacobi_curve.h
 gcrypt.h
@@ -17,8 +17,16 @@ stdio.h
 -
 jacobi_curve/jacobi_curve.h
 /Users/r.anchugov/CLionProjects/pazi_lab_1/jacobi_curve/jacobi_curve.h
- gost_curve_params.h
-/Users/r.anchugov/CLionProjects/pazi_lab_1/ gost_curve_params.h
+gost_curve_params.h
+/Users/r.anchugov/CLionProjects/pazi_lab_1/gost_curve_params.h
+point/point.h
+/Users/r.anchugov/CLionProjects/pazi_lab_1/point/point.h
+
+/Users/r.anchugov/CLionProjects/pazi_lab_1/point/point.h
+gcrypt.h
+-
+../jacobi_curve/jacobi_curve.h
+/Users/r.anchugov/CLionProjects/pazi_lab_1/jacobi_curve/jacobi_curve.h
 
 /usr/local/Cellar/libgcrypt/1.8.6/include/gcrypt.h
 stdlib.h

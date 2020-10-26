@@ -111,3 +111,13 @@ void calculate_jacobi_curve(jacobian_curve *curve, gcry_mpi_t p, gcry_mpi_t q, g
     gcry_mpi_release(buf14);
     gcry_mpi_release(buf15);
 }
+
+void print_mpi(gcry_mpi_t value) {
+    unsigned char *buffer;
+    gcry_error_t err = gcry_mpi_aprint(GCRYMPI_FMT_HEX, &buffer, NULL, value);
+    if (err != 0) {
+        printf(" error: %d\n", err);
+    }
+    printf("MPI %s\n", buffer);
+    gcry_free(buffer);
+}

@@ -6,6 +6,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_C
   "/Users/r.anchugov/CLionProjects/pazi_lab_1/jacobi_curve/jacobi_curve.c" "/Users/r.anchugov/CLionProjects/pazi_lab_1/cmake-build-debug/CMakeFiles/pazi_lab_1.dir/jacobi_curve/jacobi_curve.c.o"
   "/Users/r.anchugov/CLionProjects/pazi_lab_1/main.c" "/Users/r.anchugov/CLionProjects/pazi_lab_1/cmake-build-debug/CMakeFiles/pazi_lab_1.dir/main.c.o"
+  "/Users/r.anchugov/CLionProjects/pazi_lab_1/point/point.c" "/Users/r.anchugov/CLionProjects/pazi_lab_1/cmake-build-debug/CMakeFiles/pazi_lab_1.dir/point/point.c.o"
   )
 set(CMAKE_C_COMPILER_ID "AppleClang")
 
