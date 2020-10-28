@@ -22,6 +22,8 @@ void release_point(point *p);
 
 void print_point(point p);
 
+void print_point_in_affine(const point *p, const jacobian_curve *curve);
+
 void copy(point *p_res, const point *p);
 
 void add_point(point *p_res, const point *p1, const point *p2, const jacobian_curve *curve);
@@ -29,5 +31,11 @@ void add_point(point *p_res, const point *p1, const point *p2, const jacobian_cu
 void montgomery(point *p_res, const point *p, gcry_mpi_t scalar, const jacobian_curve *curve);
 
 void to_affine_coordinates(point *p_res, const point *p, const jacobian_curve *curve);
+
+void negative_point(point *p_res, const point *p);
+
+int is_equals(const point *p1, const point *p2, const jacobian_curve *curve);
+
+int is_on_curve(const point *p, const jacobian_curve *curve);
 
 #endif //PAZI_LAB_1_POINT_H

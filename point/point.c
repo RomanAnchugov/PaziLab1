@@ -240,3 +240,110 @@ void to_affine_coordinates(point *p_res, const point *p, const jacobian_curve *c
     p_res->z = zero;
 }
 
+void negative_point(point *p_res, const point *p) {
+    p_res->x = gcry_mpi_new(0);
+    gcry_mpi_neg(p_res->x, p->x);
+    p_res->y = gcry_mpi_copy(p->y);
+    p_res->z = gcry_mpi_copy(p->z);
+}
+
+int is_equals(const point *p1, const point *p2, const jacobian_curve *curve) {
+    point p1_affine, p2_affine;
+    int res;
+
+    to_affine_coordinates(&p1_affine, p1, curve);
+    to_affine_coordinates(&p2_affine, p2, curve);
+    res = gcry_mpi_cmp(p1_affine.x, p2_affine.x) == 0 && gcry_mpi_cmp(p1_affine.y, p2_affine.y) == 0;
+
+    release_point(&p1_affine);
+    release_point(&p2_affine);
+
+    return res;
+}
+
+int is_on_curve(const point *p, const jacobian_curve *curve) {
+    gcry_mpi_t buf1, buf2, buf3, buf4, buf5, buf6, buf7, buf8, buf9, buf10, buf11;
+    gcry_mpi_t two, four;
+    int res;
+
+    buf1 = gcry_mpi_new(0);
+    buf2 = gcry_mpi_new(0);
+    buf3 = gcry_mpi_new(0);
+    buf4 = gcry_mpi_new(0);
+    buf5 = gcry_mpi_new(0);
+    buf6 = gcry_mpi_new(0);
+    buf7 = gcry_mpi_new(0);
+    buf8 = gcry_mpi_new(0);
+    buf9 = gcry_mpi_new(0);
+    buf10 = gcry_mpi_new(0);
+    buf11 = gcry_mpi_new(0);
+
+    gcry_mpi_scan(&two, GCRYMPI_FMT_HEX, "2", 0, NULL);
+    gcry_mpi_scan(&four, GCRYMPI_FMT_HEX, "4", 0, NULL);
+
+    // buf1 = y^2
+    gcry_mpi_mulm(buf1, p->y, p->y, curve->p);
+    // buf2 = x^4
+    gcry_mpi_powm(buf2, p->x, four, curve->p);
+    // buf3 = e*x^4
+    gcry_mpi_mulm(buf3, curve->e, buf2, curve->p);
+    // buf4 = 2*d
+    gcry_mpi_mulm(buf4, two, curve->d, curve->p);
+    // buf5 = x^2
+    gcry_mpi_mulm(buf5, p->x, p->x, curve->p);
+    // buf6 = 2*d*x^2
+    gcry_mpi_mulm(buf6, buf4, buf5, curve->p);
+    // buf7 = z^2
+    gcry_mpi_mulm(buf7, p->z, p->z, curve->p);
+    // buf8 = 2*d*x^2*z^2
+    gcry_mpi_mulm(buf8, buf6, buf7, curve->p);
+    // buf9 = e*x^4 - 2*d*x^2*z^2
+    gcry_mpi_subm(buf9, buf3, buf8, curve->p);
+    // buf10 = z^4
+    gcry_mpi_powm(buf10, p->z, four, curve->p);
+    // buf11 = e*x^4 - 2*d*x^2*z^2 + z^4
+    gcry_mpi_addm(buf11, buf9, buf10, curve->p);
+    res = gcry_mpi_cmp(buf1, buf11) == 0;
+
+    gcry_mpi_release(two);
+    gcry_mpi_release(four);
+    gcry_mpi_release(buf1);
+    gcry_mpi_release(buf2);
+    gcry_mpi_release(buf3);
+    gcry_mpi_release(buf4);
+    gcry_mpi_release(buf5);
+    gcry_mpi_release(buf6);
+    gcry_mpi_release(buf7);
+    gcry_mpi_release(buf8);
+    gcry_mpi_release(buf9);
+    gcry_mpi_release(buf10);
+    gcry_mpi_release(buf11);
+
+    return res;
+}
+
+void print_point_in_affine(const point *p, const jacobian_curve *curve) {
+    unsigned char *buffer_x;
+    unsigned char *buffer_y;
+    gcry_error_t err;
+    point p_affine;
+    to_affine_coordinates(&p_affine, p, curve);
+
+    err = gcry_mpi_aprint(GCRYMPI_FMT_HEX, &buffer_x, NULL, p_affine.x);
+    if (err != 0) {
+        printf("X error: %d\n", err);
+        return;
+    }
+
+    err = gcry_mpi_aprint(GCRYMPI_FMT_HEX, &buffer_y, NULL, p_affine.y);
+    if (err != 0) {
+        printf("Y error: %d\n", err);
+        return;
+    }
+
+    printf("X: %s\nY: %s\n", buffer_x, buffer_y);
+    gcry_free(buffer_x);
+    gcry_free(buffer_y);
+    release_point(&p_affine);
+}
+
