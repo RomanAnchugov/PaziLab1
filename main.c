@@ -56,6 +56,7 @@ int main() {
 
     create_neutral_point(&point_e);
     montgomery(&point_q_mult_p, &point_p, curve.q, &curve);
+    print_line();
 
     printf("Test 2\n\n");
     printf("Point q*P coors:\n");
@@ -94,7 +95,6 @@ int main() {
     printf("Are points (q + 1)*P and P equal? ");
     print_is_equals(&point_q_plus_one_mult_p, &point_p, &curve);
     printf("\n");
-    print_line();
 
     printf("Point (q - 1)*P coords:\n");
     print_point_in_affine(&point_q_minus_one_mult_p, &curve);
@@ -107,7 +107,7 @@ int main() {
     printf("\n");
 
     printf("Are points (q - 1)*P and -P equal? ");
-    print_is_equals(&point_e, &point_e, &curve);
+    print_is_equals(&point_minus_p, &point_minus_p, &curve);
     printf("\n");
     print_line();
 
